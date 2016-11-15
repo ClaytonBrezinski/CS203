@@ -11,8 +11,8 @@ package cs203a4q1;
  */
 public class IllegalTriangleException extends Exception
 {
-    public String message;
-
+    private String message;
+    private double[] sides = new double[3];
     /**
      Creates a new instance of <code>IllegalTriangleException</code> without detail message.
      */
@@ -44,12 +44,19 @@ public class IllegalTriangleException extends Exception
             msg += "side1";
         }
         this.message = msg;
+        sides[0] = side1;
+        sides[1] = side2;
+        sides[2] = side3;
     }
 
+    public double[] getSidesOfTriangle()
+    {
+        return this.sides;
+    }
     @Override
     public String getMessage()
     {
-        return message;
+        return this.message;
     }
 
 }
