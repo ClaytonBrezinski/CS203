@@ -17,10 +17,27 @@ public class CS203A4Q1
      */
     public static void main(String[] args)
     {
-        // TODO code application logic here
+        try
+        {
+            Triangle a = new Triangle(1,1,1);
+            Triangle b = new Triangle(1,2,4);
+        }
+        catch(IllegalTriangleException ite)
+        {
+            double[] sides = ite.getSidesOfTriangle();
+            for (int i = 0; i < sides.length; i++)
+            {
+                System.out.print(sides[i] + " ");
+                if (i == sides.length - 1)
+                {
+                    System.out.print('\n');
+                }
+            }
+            System.out.println(ite.getMessage());
+        }
         
-   }
-
+    }
+    
 }
 /*
 Purpose:
