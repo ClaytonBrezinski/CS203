@@ -1,8 +1,8 @@
 /*
- To change this license header, choose License Headers in Project Properties.
- To change this template file, choose Tools | Templates
- and open the template in the editor.
- */
+Author: Clayton Brezinski
+Student ID: 200220989
+Notes:
+*/
 package cs203a4q2;
 
 /**
@@ -21,3 +21,9 @@ public class CS203A4Q2
     }
     
 }
+/*
+Purpose:
+Arguments:
+Outputs:
+Notes:
+*/
