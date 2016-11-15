@@ -17,16 +17,20 @@ Notes
 */
 public class Triangle extends GeometricObject
 {
-    private double side1 = 1.0;
-    private double side2 = 1.0;
-    private double side3 = 1.0;
+    private double side1;
+    private double side2;
+    private double side3;
     
     public Triangle()
     {
         return;
     }
-    public Triangle(double inSide1, double inSide2, double inSide3)
+    public Triangle(double inSide1, double inSide2, double inSide3) throws IllegalTriangleException
     {
+        if ( ((inSide1 + inSide2) < inSide3) == true || ((inSide1 + inSide3) < inSide2) == true || ((inSide2 + inSide3) < inSide1) == true)
+        {
+            throw new IllegalTriangleException();
+        }
         if (inSide1 > 0 && inSide2 > 0 && inSide2 > 0 )
         {
             this.side1 = inSide1;
