@@ -16,7 +16,6 @@ import java.util.Scanner;
  */
 public class CS203A4Q5
 {
-
     public static void main(String[] args)
     {
 	try {
@@ -41,9 +40,9 @@ public class CS203A4Q5
 		    completed = true;
 		    break;
 		}
-		else if (userSelection > 1 || userSelection < 11)
+		else if (userSelection > 0 && userSelection < 11)
 		{
-		    raf.seek((userSelection - 2) * 8); // Move the file pointer to the before user selected itemNumber
+		    raf.seek((userSelection - 1) * 8); // Move the file pointer to the before user selected itemNumber
 		    System.out.println("Enter the price that you want to alter");
 		    double userPrice = input.nextDouble();
 		    raf.writeDouble(userPrice);
@@ -53,8 +52,9 @@ public class CS203A4Q5
 		    System.out.println("Invalid entry, try again");
 		}
 	    }
-	    //raf.seek((userSelection - 1) * 8);
-	    //System.out.println("The number in itemNumber: " + userSelection + "is: " + raf.readInt());
+	    //raf.seek((1 - 1) * 8);
+	    //System.out.println("The number in itemNumber: " + 1 + " is: " + raf.readDouble());
+	
 
 	}
 	catch (FileNotFoundException fnfe) {
