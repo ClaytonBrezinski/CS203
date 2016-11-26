@@ -20,6 +20,7 @@ public class CS203A4Q5
     {
         CreateItemRecord a = new CreateItemRecord();
         DisplayRecordSequentially b = new DisplayRecordSequentially();
+        AccessRecordRandomly c = new AccessRecordRandomly();
     }
 
 }
