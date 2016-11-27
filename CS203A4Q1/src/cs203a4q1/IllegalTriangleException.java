@@ -17,7 +17,7 @@ public class IllegalTriangleException extends Exception
      Creates a new instance of <code>IllegalTriangleException</code> without detail message.
      */
     public IllegalTriangleException()
-    {
+    { 
     }
 
     /**
@@ -25,25 +25,24 @@ public class IllegalTriangleException extends Exception
 
      @param msg the detail message.
      */
-    public IllegalTriangleException(double side1, double side2, double side3, String msg)
+    public IllegalTriangleException(double side1, double side2, double side3, String message)
     {
-        super(msg);
-        msg = "one side is larger than the sum of 2 other sides. The larger side is: ";
+        super(message);
         if (((side1 + side2) < side3) == true)
         {
-            msg += "side3";
+            message += "side3";
         }
 
         if (((side1 + side3) < side2) == true)
         {
-            msg += "side2";
+            message += "side2";
         }
 
         if (((side2 + side3) < side1) == true)
         {
-            msg += "side1";
+            message += "side1";
         }
-        this.message = msg;
+        this.message = message;
         sides[0] = side1;
         sides[1] = side2;
         sides[2] = side3;

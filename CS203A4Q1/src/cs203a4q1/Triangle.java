@@ -29,7 +29,7 @@ public class Triangle extends GeometricObject
     {
         if ( ((inSide1 + inSide2) < inSide3) == true || ((inSide1 + inSide3) < inSide2) == true || ((inSide2 + inSide3) < inSide1) == true)
         {
-            throw new IllegalTriangleException();
+            throw new IllegalTriangleException(inSide1, inSide2, inSide3, "One side is larger than the sum of 2 other sides. The larger side is: ");
         }
         if (inSide1 > 0 && inSide2 > 0 && inSide2 > 0 )
         {
