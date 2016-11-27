@@ -22,7 +22,6 @@ public class CS203A4Q5
         DisplayRecordSequentially b = new DisplayRecordSequentially();
         AccessRecordRandomly c = new AccessRecordRandomly();
     }
-
 }
 
 /*
