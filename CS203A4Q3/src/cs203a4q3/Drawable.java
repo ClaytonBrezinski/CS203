@@ -11,5 +11,11 @@ package cs203a4q3;
  */
 public interface Drawable
 {
-    void draw();
+    /*
+    Purpose: forces all classes that implement this interface to have the draw method
+    Arguments:
+    Outputs: 
+    Notes:
+    */
+    public void draw();
 }
