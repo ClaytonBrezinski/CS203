@@ -17,7 +17,13 @@ public class CS203A4Q3
      */
     public static void main(String[] args)
     {
-        // TODO code application logic here
+        Artist a = new Artist();
+        Rectangle b = new Rectangle(); //2x1 rectangle
+        Rectangle c = new Rectangle(8,3);
+        Rectangle d = new Rectangle(5,9);
+        a.drawObject(b);
+        a.drawObject(c);
+        a.drawObject(d);
     }
     
 }
