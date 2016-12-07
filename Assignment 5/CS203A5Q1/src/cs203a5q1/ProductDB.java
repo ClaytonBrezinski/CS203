@@ -17,8 +17,11 @@ public class ProductDB
 
     ArrayList<Product> database;
 
-    /**
-     @param args the command line arguments
+    /*
+     Purpose: creates the product database, initializes the Scanner, and then opens the main menu
+     Arguments: N/A
+     Outputs: N/A
+     Notes:
      */
     public ProductDB()
     {
@@ -27,6 +30,12 @@ public class ProductDB
         mainMenu(userInput);
     }
 
+    /*
+     Purpose: displays to the user the different functions of the product database
+     Arguments: Scanner - the method that the user is using to interact with the product database
+     Outputs: print to commandline
+     Notes: this function will allow the user to either: quit, list all products, search by keyword to either display or remove products within the db
+     */
     public void mainMenu(Scanner input)
     {
         while (true)
@@ -76,6 +85,12 @@ public class ProductDB
         }
     }
 
+    /*
+     Purpose: creates a new product from user input and then adds it to the database
+     Arguments: Scanner - method to extract information for creation of the product
+     Outputs: N/A, new product created and added to DB
+     Notes:
+     */
     public void addProduct(Scanner input)
     {
         // get product
@@ -101,7 +116,7 @@ public class ProductDB
         System.out.println("Enter product description: ");
         String description = input.nextLine();
         System.out.println();
-        
+
         //create new product from inputs
         Product newProduct = new Product();
         newProduct.setName(name);
@@ -112,6 +127,12 @@ public class ProductDB
         database.add(newProduct);
     }
 
+    /*
+     Purpose: lists all products within the database
+     Arguments: N/A
+     Outputs: print to the command line of all the products
+     Notes:
+     */
     public void listProducts()
     {
         for (int i = 0; i < database.size(); i++)
@@ -121,6 +142,12 @@ public class ProductDB
         System.out.println();
     }
 
+    /*
+     Purpose: from the keyword, gets an ArrayList from the database of all the products that match it, then displays it to the user.
+     Arguments: String - the keyword that we are going to seach for
+     Outputs: N/A, printout to the command line of all similar products
+     Notes:
+     */
     public void searchAndDisplay(String keyword)
     {
         ArrayList<Product> searchList = search(keyword);
@@ -137,6 +164,13 @@ public class ProductDB
         }
     }
 
+    /*
+     Purpose: from the keyword, gets an ArrayList from the database of all the products that match it, then displays it to the user with a prompt to keep or
+     remove the product
+     Arguments: String - the keyword to search for, Scanner - the method in which we are getting user input.
+     Outputs: N/A - print to the command line
+     Notes:
+     */
     public void searchAndRemove(String keyword, Scanner input)
     {
         ArrayList<Product> searchList = search(keyword);
@@ -148,7 +182,7 @@ public class ProductDB
         {
             for (int i = 0; i < searchList.size(); i++)
             {
-                System.out.println(searchList.get(i).getName() + ", " + searchList.get(i).getID() + ", " + searchList.get(i).getDescription() + (" (Y/N?)"));
+                System.out.println("Delete: " + searchList.get(i).getName() + ", " + searchList.get(i).getID() + ", " + searchList.get(i).getDescription() + (" (Y/N?)"));
                 while (true)
                 {
                     String userChoice = input.next();
@@ -170,6 +204,12 @@ public class ProductDB
         }
     }
 
+    /*
+     Purpose: Search the databse for any product that has matching values to the keyword
+     Arguments: String - the keyword we will be searching for
+     Outputs: ArrayList of products.
+     Notes:
+     */
     private ArrayList<Product> search(String keyword)
     {
         ArrayList<Product> returnList = new ArrayList<Product>();
@@ -190,12 +230,4 @@ public class ProductDB
         }
         return returnList;
     }
-
 }
-
-/*
- Purpose:
- Arguments:
- Outputs:
- Notes:
- */
