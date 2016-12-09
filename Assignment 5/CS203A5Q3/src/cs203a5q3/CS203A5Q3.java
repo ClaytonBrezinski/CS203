@@ -14,9 +14,12 @@ import java.lang.Number;
 public class CS203A5Q3
 {
 
-    /**
-     @param args the command line arguments
-     */
+    /*
+    Purpose: creates an integer and double array, places them into an Integer and Double array, prints out their contents, sorts them, then prints the contents again
+    Arguments: N/A
+    Outputs: N/A, command line of all the printouts
+    Notes:
+    */
     public static void main(String[] args)
     {
         // testing integers
@@ -45,7 +48,13 @@ public class CS203A5Q3
         insertionSort(listB);
         printArray(listB);
     }
-
+    
+    /*
+    Purpose: performs insertion sort on the array
+    Arguments: T[] - the array we are sorting
+    Outputs: N/A, the array is sorted
+    Notes:
+    */
     public static <T extends Number> void insertionSort(T[] list)
     {
         for (int i = 1; i < list.length; i++)
@@ -66,6 +75,12 @@ public class CS203A5Q3
         }
     }
 
+    /*
+    Purpose: prints the given array in it's given format (int or double)
+    Arguments: t[] - the array we are printing
+    Outputs: command line print of the array
+    Notes:
+    */
     public static <T extends Number> void printArray(T[] list)
     {
         if (Integer.class.isAssignableFrom(list[0].getClass()) == true)
@@ -92,7 +107,13 @@ public class CS203A5Q3
         }
         System.out.println();
     }
-
+    
+    /*
+    Purpose: puts a int array into a T array
+    Arguments: T[] - the T array we are placing the int into, double[] the original array
+    Outputs: N/A, T array is filled
+    Notes:
+    */
     public static <T extends Number> void arrayIntoList(T[] list, int[] array)
     {
         for (int i = 0; i < array.length; i++)
@@ -101,6 +122,12 @@ public class CS203A5Q3
         }
     }
 
+    /*
+    Purpose: puts a double array into a T array
+    Arguments: T[] - the T array we are placing the doubles into, double[] the original array
+    Outputs: N/A, T array is filled
+    Notes:
+    */
     public static <T extends Number> void arrayIntoList(T[] list, double[] array)
     {
         for (int i = 0; i < array.length; i++)
