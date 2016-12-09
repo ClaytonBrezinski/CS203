@@ -19,7 +19,7 @@ public class CS203A5Q3
      */
     public static void main(String[] args)
     {
-        // TODO code application logic here
+        // testing integers
         int[] arrayA =
         {
             9, 23, 6, 3, 83, 11, 1, 7, 5, 2
@@ -29,7 +29,10 @@ public class CS203A5Q3
         System.out.println("Integer values in original order: ");
         printArray(listA);
         System.out.println("Integer values in ascending order: ");
+        insertionSort(listA);
+        printArray(listA);
 
+        // testing doubles
         double[] arrayB =
         {
             9.9, 3.8, 5.2, 7.7, 1.5, 8.8, 3.3, 6.6, 8.3
@@ -39,6 +42,8 @@ public class CS203A5Q3
         System.out.println("Double values in original order: ");
         printArray(listB);
         System.out.println("Double values in ascending order: ");
+        insertionSort(listB);
+        printArray(listB);
     }
 
     public static <T extends Number> void insertionSort(T[] list)
@@ -51,8 +56,7 @@ public class CS203A5Q3
              */
             T currentElement = list[i];
             int k;
-
-            for (k = i - 1; k >= 0 && list[k].intValue() > currentElement.intValue(); k--)
+            for (k = i - 1; k >= 0 && list[k].doubleValue()> currentElement.doubleValue(); k--)
             {
                 list[k + 1] = list[k];
             }
@@ -66,45 +70,43 @@ public class CS203A5Q3
     {
         if (Integer.class.isAssignableFrom(list[0].getClass()) == true)
         {
-            for (int i = 1; i < list.length; i++)
+            for (int i = 0; i < list.length; i++)
             {
-                System.out.println(list[i].intValue());
+                System.out.print(list[i].intValue() + " ");
             }
         }
         else if (Double.class.isAssignableFrom(list[0].getClass()) == true)
         {
-            for (int i = 1; i < list.length; i++)
+            for (int i = 0; i < list.length; i++)
             {
-                System.out.println(list[i].doubleValue());
+                System.out.print(list[i].doubleValue() + " ");
             }
         }
         else
         {
-            for (int i = 1; i < list.length; i++)
+            for (int i = 0; i < list.length; i++)
             {
                 //System.out.println(list[i].doubleValue());
                 System.out.println("a");
             }
         }
-
+        System.out.println();
     }
 
-    public static <T extends Number> T[] arrayIntoList(T[] list, int[] array)
+    public static <T extends Number> void arrayIntoList(T[] list, int[] array)
     {
         for (int i = 0; i < array.length; i++)
         {
             list[i] = (T) Integer.valueOf(array[i]);
         }
-        return list;
     }
 
-    public static <T extends Number> T[] arrayIntoList(T[] list, double[] array)
+    public static <T extends Number> void arrayIntoList(T[] list, double[] array)
     {
         for (int i = 0; i < array.length; i++)
         {
             list[i] = (T) Double.valueOf(array[i]);
         }
-        return list;
     }
 }
 
