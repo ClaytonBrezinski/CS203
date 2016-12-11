@@ -1,61 +1,33 @@
 /*
-Author: Clayton Brezinski
-UserID: 200220989
-Date: 
-Notes:
-*/
-
+ Author: Clayton Brezinski
+ UserID: 200220989
+ Date:
+ Notes:
+ */
 package cs203a5q2;
 
-import java.util.concurrent.*;
 
-public class AccountWithoutSync {
-  private static Account account = new Account();
+public class AccountWithoutSync
+{
+    private static Account account = new Account();
 
-  public static void main(String[] args) {
-    ExecutorService executor = Executors.newCachedThreadPool();
+    /*
+    Purpose: creates a new account and then prints the inital balance. Following this, it creates 100 instances of AddAPennyTask - which has a 2mS delay on it
+    Arguments: N/A
+    Outputs: command line
+    Notes:
+    */
+    public static void main(String[] args)
+    {
+        Account account = new Account();
 
-    // Create and launch 100 threads
-    for (int i = 0; i < 100; i++) {
-      executor.execute(new AddAPennyTask());
+        System.out.println("Account Balance Before Deposit is: " + account.getBalance());
+        for (int i = 0; i < 100; i++)
+        {
+            new Thread(new AddAPennyTask(account)).start();
+        }
+  
+        System.out.println("Account Balance After Deposit is: " + account.getBalance());
+        
     }
-
-    executor.shutdown();
-
-    // Wait until all tasks are finished
-    while (!executor.isTerminated()) {
-    }
-
-    System.out.println("What is balance? " + account.getBalance());
-  }
-
-  // A thread for adding a penny to the account
-  private static class AddAPennyTask implements Runnable {
-    public void run() {
-      account.deposit(1);
-    }
-  }
-
-  // An inner class for account
-  private static class Account {
-    private int balance = 0;
-
-    public int getBalance() {
-      return balance;
-    }
-
-    public void deposit(int amount) {
-      int newBalance = balance + amount;
-
-      // This delay is deliberately added to magnify the
-      // data-corruption problem and make it easy to see.
-      try {
-        Thread.sleep(5);
-      }
-      catch (InterruptedException ex) {
-      }
-
-      balance = newBalance;
-    }
-  }
 }
